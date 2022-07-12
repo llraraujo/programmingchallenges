@@ -9,18 +9,14 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            List<int> ages = new List<int>();
-            while (true)
-            {
-                int age = int.Parse(Console.ReadLine());
-                if (age < 0) break;
-                ages.Add(age);
-            }
-            double media = (double) ages.Sum() / ages.Count();
-
-            Console.Write(media.ToString("F2", CultureInfo.InvariantCulture));
+            double s = 0.0;    
             
+            for(int i = 1; i <= 100; i++)
+            {
+                s +=  1.0 / i;
+            }
 
+            Console.WriteLine(s.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
