@@ -10,33 +10,20 @@ namespace BeecrowdCSharp
         static void Main(string[] args)
         {   
          
-            int tests = int.Parse(Console.ReadLine());
-            for(int i = 0; i < tests; i++)
+            while (true)
             {
-                string[] entrada = Console.ReadLine().Split(' ');
-                int x = int.Parse(entrada[0]);
-                int y = int.Parse(entrada[1]);
+                int n = int.Parse(Console.ReadLine());
+              
+                if (n == 0) break;
+                if (n % 2 != 0) n++;
+                int soma = n;
 
-                if (x % 2 == 0) x += 1;
-
-                int soma = 0;
-                int count = 0;
-
-                while (true)
+                for (int i = 2; i < 10; i+=2)
                 {
-                    if (x % 2 != 0)
-                    {
-                        soma += x;
-                        count += 1;
-                    }
-
-                    if (count == y) break;
-
-                    x += 1;
-
+                    soma += (n + i);
                 }
-                Console.WriteLine(soma);
 
+                Console.WriteLine(soma);
             }
 
 
