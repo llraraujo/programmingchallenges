@@ -9,17 +9,13 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            double s = 1.0;
-            int j = 2;
+            int n = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             
-            for(int i = 3; i <= 39; i+=2)
+            for(int i = 1; i <= n; i++)
             {
-                s +=  (double) i / j;
-                j *= 2;
-
+                if (n % i == 0) Console.WriteLine(i);
             }
 
-            Console.WriteLine(s.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
