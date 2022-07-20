@@ -8,24 +8,19 @@ namespace BeecrowdCSharp
     class Program
     {
         static void Main(string[] args)
-        {   
-            var testes = int.Parse(Console.ReadLine());
+        {
+            var X = new int[10];
 
-            for (int i = 0; i < testes; i++ )
+            for (int i = 0; i < 10; i++ )
             {
-                int n = int.Parse(Console.ReadLine());
+                X[i] = int.Parse(Console.ReadLine());
 
-                int count_divisores = 0;
+            }
 
-                for(int j = 1; j <= n; j++)
-                {
-                    if (n % j == 0) count_divisores ++;
-                }
-
-                if(count_divisores > 2) Console.WriteLine(n + " nao eh primo"); 
-                else Console.WriteLine(n + " eh primo"); 
-
-
+            for(int i = 0; i < X.Length; i++)
+            {
+                if (X[i] <= 0) X[i] = 1;
+                Console.WriteLine($"X[{i}] = {X[i]}");
             }
 
 
