@@ -15,15 +15,15 @@ namespace BeecrowdCSharp
             {
                 int n = int.Parse(Console.ReadLine());
 
-                int soma_divisores = 0;
+                int count_divisores = 0;
 
-                for(int j = 1; j < n; j++)
+                for(int j = 1; j <= n; j++)
                 {
-                    if (n % j == 0) soma_divisores += j;
+                    if (n % j == 0) count_divisores ++;
                 }
 
-                if(soma_divisores == n) Console.WriteLine(n + " eh perfeito"); 
-                else Console.WriteLine(n + " nao eh perfeito"); 
+                if(count_divisores > 2) Console.WriteLine(n + " nao eh primo"); 
+                else Console.WriteLine(n + " eh primo"); 
 
 
             }
