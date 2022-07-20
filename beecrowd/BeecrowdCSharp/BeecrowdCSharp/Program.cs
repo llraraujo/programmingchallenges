@@ -9,21 +9,23 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {   
-         
-            while (true)
+            var testes = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < testes; i++ )
             {
                 int n = int.Parse(Console.ReadLine());
-              
-                if (n == 0) break;
-                if (n % 2 != 0) n++;
-                int soma = n;
 
-                for (int i = 2; i < 10; i+=2)
+                int soma_divisores = 0;
+
+                for(int j = 1; j < n; j++)
                 {
-                    soma += (n + i);
+                    if (n % j == 0) soma_divisores += j;
                 }
 
-                Console.WriteLine(soma);
+                if(soma_divisores == n) Console.WriteLine(n + " eh perfeito"); 
+                else Console.WriteLine(n + " nao eh perfeito"); 
+
+
             }
 
 
