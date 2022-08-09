@@ -9,20 +9,21 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            var N = new int[10];
+            float[] A = new float[100];
 
-            N[0] = int.Parse(Console.ReadLine());
-
-            for(int i = 0; i < N.Length; i++)
+           
+            for(int i = 0; i < A.Length; i++)
             {
-                Console.WriteLine($"N[{i}] = {N[i]}");
-
-                if(i != N.Length - 1)
-                    N[i + 1] = N[i] * 2;
-
+                A[i] = float.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); 
             }
 
-            
+            for (int i = 0; i < A.Length; i++) {
+
+                if (A[i] <= 10.0)
+                {
+                     Console.WriteLine("A[" + i + "]" + " = " + A[i].ToString("F1", CultureInfo.InvariantCulture));
+                }
+            }
 
 
         }
