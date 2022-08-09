@@ -9,22 +9,32 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            float[] A = new float[100];
+            var N = new int[20];
 
            
-            for(int i = 0; i < A.Length; i++)
+            // Armazenando os dados do vetor
+            for(int i = 0; i < N.Length; i++)
             {
-                A[i] = float.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); 
+                N[i] = int.Parse(Console.ReadLine());
             }
 
-            for (int i = 0; i < A.Length; i++) {
+            var j = N.Length - 1;
 
-                if (A[i] <= 10.0)
-                {
-                     Console.WriteLine("A[" + i + "]" + " = " + A[i].ToString("F1", CultureInfo.InvariantCulture));
-                }
+            // Trocando os valores do vetor
+            for(int i = 0; i < N.Length/2; i++)
+            {
+                int aux = N[i];
+                N[i] = N[j];
+                N[j] = aux;
+                j--;
             }
 
+            // Imprimindo o vetor na tela
+            for(int i = 0; i < N.Length; i++)
+            {
+                Console.WriteLine("N[" + i + "]" + " = " + N[i]);
+            }
+            
 
         }
     }
