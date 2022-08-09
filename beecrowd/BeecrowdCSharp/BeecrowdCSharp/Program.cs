@@ -9,19 +9,20 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            var X = new int[10];
+            var N = new int[10];
 
-            for (int i = 0; i < 10; i++ )
+            N[0] = int.Parse(Console.ReadLine());
+
+            for(int i = 0; i < N.Length; i++)
             {
-                X[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine($"N[{i}] = {N[i]}");
+
+                if(i != N.Length - 1)
+                    N[i + 1] = N[i] * 2;
 
             }
 
-            for(int i = 0; i < X.Length; i++)
-            {
-                if (X[i] <= 0) X[i] = 1;
-                Console.WriteLine($"X[{i}] = {X[i]}");
-            }
+            
 
 
         }
