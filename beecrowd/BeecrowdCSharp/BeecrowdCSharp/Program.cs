@@ -9,24 +9,21 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            int valor = int.Parse(Console.ReadLine());
-            int[] vetor = new int[1000];
-            int aux = 0;
+            decimal valor = decimal.Parse(Console.ReadLine());
+            decimal[] vetor = new decimal[100];
 
             for(int t = 0; t < vetor.Length; t++)
             {
-                if(t > 1 && (t % valor) == 0)
+                if(t == 0)
                 {
-                    aux = 0;
-                    vetor[t] = aux;
-                    Console.WriteLine("N[" + t + "] = " + vetor[t]);
+                    vetor[t] = valor;
                 }
                 else
                 {
-                    vetor[t] = aux;
-                    Console.WriteLine("N[" + t + "] = " + vetor[t]);
+                    vetor[t] = vetor[t - 1] / 2;
                 }
-                aux++;
+                
+                Console.WriteLine("N[" + t + "] = " + vetor[t].ToString("0.0000"));
             }
                    
         }
