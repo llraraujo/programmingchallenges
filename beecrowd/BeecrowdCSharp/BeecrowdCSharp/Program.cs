@@ -9,33 +9,28 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            var N = new int[20];
+            int quantidadeDeTestes = int.Parse(Console.ReadLine());
 
-           
-            // Armazenando os dados do vetor
-            for(int i = 0; i < N.Length; i++)
+            for(int t = 0; t < quantidadeDeTestes; t++)
             {
-                N[i] = int.Parse(Console.ReadLine());
+                int posicao = int.Parse(Console.ReadLine());
+                Console.WriteLine("Fib(" + posicao + ") = " + Fibonacci(posicao));
             }
+                   
+        }
 
-            var j = N.Length - 1;
-
-            // Trocando os valores do vetor
-            for(int i = 0; i < N.Length/2; i++)
+        private static long Fibonacci(int posicao)
+        {
+            if (posicao == 0) return 0;
+            if (posicao == 1) return 1;
+            List<long> fibonacci = new List<long>() { 0, 1 };
+            while(posicao >= fibonacci.Count)
             {
-                int aux = N[i];
-                N[i] = N[j];
-                N[j] = aux;
-                j--;
+                long ultimo = fibonacci[fibonacci.Count - 1];
+                long penultimo = fibonacci[fibonacci.Count - 2];
+                fibonacci.Add(ultimo + penultimo);
             }
-
-            // Imprimindo o vetor na tela
-            for(int i = 0; i < N.Length; i++)
-            {
-                Console.WriteLine("N[" + i + "]" + " = " + N[i]);
-            }
-            
-
+            return fibonacci[posicao];           
         }
     }
 }
