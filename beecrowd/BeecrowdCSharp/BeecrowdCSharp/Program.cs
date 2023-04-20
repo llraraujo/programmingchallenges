@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Globalization;
 
 namespace BeecrowdCSharp
 {
@@ -9,54 +6,37 @@ namespace BeecrowdCSharp
     {
         static void Main(string[] args)
         {
-            const int QUANTIDADE_DE_DADOS = 15;
-            int[] vetorPares = new int[5];
-            int[] vetorImpares = new int[5];
-            int tamanhoVetor = vetorPares.Length;
-            int countQtdRepeticoes = 0;
-            int indexPares = 0;
-            int indexImpares = 0;
-;
-            for(int t = 0; t < QUANTIDADE_DE_DADOS; t++)
+            int tamanhoDoVetor = int.Parse(Console.ReadLine());
+            int[] vetorValores = new int[tamanhoDoVetor];
+            string[] valores = Console.ReadLine().Split();
+          
+            for(int i = 0; i < tamanhoDoVetor; i++)
             {
-                int valor = int.Parse(Console.ReadLine());
-                if(valor % 2 == 0)
-                {
-                    vetorPares[indexPares] = valor;
-                    indexPares++;
-                    if (indexPares == tamanhoVetor)
-                    {
-                        ImprimirValoresDoVetor(ref vetorPares, "par");
-                        indexPares = 0;
-                    }
-                }
-                else
-                {                    
-                    vetorImpares[indexImpares] = valor;
-                    indexImpares++;
-                    if (indexImpares == tamanhoVetor)
-                    {                        
-                        ImprimirValoresDoVetor(ref vetorImpares, "impar");
-                        indexImpares = 0;
-                    }
-                }
-                countQtdRepeticoes++;
+                vetorValores[i] = int.Parse(valores[i]);
             }
 
-            ImprimirValoresDoVetor(ref vetorImpares, "impar");
-            ImprimirValoresDoVetor(ref vetorPares, "par");
+            Tuple<int, int> valorMinimoEPosicao = RetornaValorMinimoEPosicao(vetorValores);
+
+            Console.WriteLine("Menor valor: " + valorMinimoEPosicao.Item1);
+            Console.WriteLine("Posicao: " + valorMinimoEPosicao.Item2);
+
         }
 
-        static void ImprimirValoresDoVetor(ref int[] vetor, string saida)
-        {                        
-            for(int i = 0; i < vetor.Length; i++)
+        static Tuple<int, int> RetornaValorMinimoEPosicao(int[] vetor)
+        {
+            int menorValor = vetor[0];
+            int posicao = 0;
+
+            for (int i = 0; i < vetor.Length; i++)
             {
-                if (vetor[i] != 0)
+                if (vetor[i] < menorValor)
                 {
-                    Console.WriteLine(saida + "[" + i + "] = " + vetor[i]);
-                }   
+                    menorValor = vetor[i];
+                    posicao = i;
+                }
             }
-            vetor = new int[5];
+
+            return Tuple.Create(menorValor, posicao);
         }
     }
 }
